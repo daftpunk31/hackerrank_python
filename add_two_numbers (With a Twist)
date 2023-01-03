@@ -1,0 +1,33 @@
+'''
+User gives an integer array nums and an integer, target.
+Now find which numbers in nums add up to the target and return the list of indices of those two numbers.
+Note:- Special cases like this --> nums=[3,3], target=[6], ans=[0,1] 
+^ think about it when using two for loops :)
+'''
+def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        ls=[]
+        # nums1=num[1:]
+        count=0
+        for i in nums:
+            if count==0:
+                for j in range(len(nums)):
+                    if(i+nums[j]==target):
+                        if nums.index(i)==j:
+                            continue
+                        else:
+                            ls.append(nums.index(i))
+                            ls.append(j)
+                            count+=1
+                        break
+                    else:
+                        pass
+            else:
+                break
+        return ls
+print(twoSum([2,5,5,11,15],10))
+#Answer will be a [1,2]
